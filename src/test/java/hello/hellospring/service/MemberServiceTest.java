@@ -21,10 +21,12 @@ class MemberServiceTest {
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);
     }
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+//    @AfterEach
+//    public void afterEach() {
+//
+//        memberRepository.clearStore();
+//    }
+
     @Test
     @Commit
     void 회원가입() throws Exception {
