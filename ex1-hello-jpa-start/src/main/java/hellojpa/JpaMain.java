@@ -19,9 +19,8 @@ public class JpaMain {
         transaction.begin();
         em.persist(member);
         Member member1 = em.find(Member.class, member.getId());
-        member1.setName("member1");
+        member1.setName("memberABC");
 
-        em.persist(member1);
 
         transaction.commit();
         em.close();
