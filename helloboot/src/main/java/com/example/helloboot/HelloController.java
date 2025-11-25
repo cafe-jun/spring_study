@@ -17,16 +17,16 @@ import java.util.Objects;
 public class HelloController implements ApplicationContextAware {
 
     private final HelloService helloService;
-    private ApplicationContext applicationContext;
+//    private ApplicationContext applicationContext;
 
-    public HelloController(HelloService helloService,ApplicationContext applicationContext) {
+    public HelloController(HelloService helloService) {
         this.helloService = helloService;
-        this.applicationContext = applicationContext;
     }
 
     @GetMapping("/hello")
     public String hello (String name) {
-        return helloService.hello(Objects.requireNonNull(name));
+        if(name == null || name.trim().isEmpty()) throw new IllegalArgumentException();
+        return helloService.hello(name);
     }
 
 
