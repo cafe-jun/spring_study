@@ -1,10 +1,10 @@
 package com.example.config.autoconfig;
 
+
 import com.example.config.ConditionalMyOnClass;
 import com.example.config.MyAutoConfig;
-import com.fasterxml.jackson.databind.util.ClassUtil;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
+import org.springframework.boot.web.embedded.jetty.JettyWebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
@@ -14,13 +14,11 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.util.ClassUtils;
 
 @MyAutoConfig
-@ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
-public class TomcatWebServerConfig {
-
-    @Bean("tomcatWebServerFactory")
-    @ConditionalOnMissingBean
-    public ServletWebServerFactory servletWebServerFactory () {
-        return new TomcatServletWebServerFactory();
+@ConditionalMyOnClass("org.eclipse.jetty.server.Server")
+public class JettyWebServerConfig {
+    @Bean("jettyWebServerFactory")
+    public ServletWebServerFactory servletContainer() {
+        return new JettyServletWebServerFactory();
     }
 
 }
