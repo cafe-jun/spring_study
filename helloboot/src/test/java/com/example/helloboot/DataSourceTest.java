@@ -12,9 +12,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = HellobootApplication.class)
-@TestPropertySource("classpath:/application.properties")
+@HelloBootTest
 public class DataSourceTest {
     @Autowired
     DataSource dataSource;
@@ -24,4 +22,6 @@ public class DataSourceTest {
         Connection connection = dataSource.getConnection();
         connection.close();
     }
+
+
 }
