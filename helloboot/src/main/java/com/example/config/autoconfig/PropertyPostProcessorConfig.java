@@ -19,9 +19,10 @@ public class PropertyPostProcessorConfig {
                 MyConfigProperty annotation = AnnotationUtils.findAnnotation(bean.getClass(), MyConfigProperty.class);
 
                 if(annotation == null) return bean;
-                Map<String, Object> annotationAttributes = AnnotationUtils.getAnnotationAttributes(annotation);
 
-                String prefix = annotationAttributes.get("prefix").toString();
+                Map<String, Object> attr = AnnotationUtils.getAnnotationAttributes(annotation);
+
+                String prefix = attr.get("prefix").toString();
 
                 return Binder.get(env).bindOrCreate(prefix,bean.getClass());
             }

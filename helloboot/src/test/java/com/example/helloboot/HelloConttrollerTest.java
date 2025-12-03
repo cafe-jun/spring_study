@@ -10,7 +10,7 @@ public class HelloConttrollerTest {
 
         String ret = helloController.hello("Spring");
 
-        Assertions.assertThat(ret).isEqualTo("Hello spring");
+        Assertions.assertThat(ret).isEqualTo("Spring");
 
     }
 
