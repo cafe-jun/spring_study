@@ -17,7 +17,7 @@ public class HelloApiTest {
         TestRestTemplate restTemplate = new TestRestTemplate();
 
         ResponseEntity<String> res =
-                restTemplate.getForEntity("http://localhost:8080/hello?name={name}", String.class,"spring");
+                restTemplate.getForEntity("http://localhost:8080/app/hello?name={name}", String.class,"spring");
         // status code 200
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
