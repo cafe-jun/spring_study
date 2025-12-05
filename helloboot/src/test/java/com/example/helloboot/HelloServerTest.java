@@ -1,5 +1,7 @@
 package com.example.helloboot;
 
+import com.example.helloboot.repository.Hello;
+import com.example.helloboot.repository.HelloRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,12 +27,23 @@ public class HelloServerTest {
 
     @Test
     void simpleHelloServer() {
-        SimpleHelloService helloService = new SimpleHelloService();
+        SimpleHelloService helloService = new SimpleHelloService(getHelloRepository());
+        String ret =  helloService.sayHello("Spring");
+        Assertions.assertThat(ret).isEqualTo("Hello Spring");
+    }
 
-        String ret =  helloService.hello("spring");
+    private static HelloRepository getHelloRepository() {
+        return new HelloRepository() {
+            @Override
+            public Hello findHello(String name) {
+                return null;
+            }
 
-        Assertions.assertThat(ret).isEqualTo("Hello spring");
+            @Override
+            public void increaseCount(String name) {
 
+            }
+        };
     }
 
     @Test
@@ -38,11 +51,11 @@ public class HelloServerTest {
         HelloController helloController = new HelloController(name -> name);
 
         Assertions.assertThatThrownBy(() -> {
-            String ret = helloController.hello(null);
+            String ret = helloController.sayHello(null);
         }).isInstanceOf(IllegalArgumentException.class);
 
         Assertions.assertThatThrownBy(() -> {
-            String ret = helloController.hello("");
+            String ret = helloController.sayHello("");
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -50,7 +63,7 @@ public class HelloServerTest {
     @Test
     void helloDecorator() {
         HelloDecorator decorator = new HelloDecorator(name -> name);
-        String ret = decorator.hello("test");
-        Assertions.assertThat(ret).isEqualTo("*test*");
+        String ret = decorator.hello("Test");
+        Assertions.assertThat(ret).isEqualTo("*Test*");
     }
 }

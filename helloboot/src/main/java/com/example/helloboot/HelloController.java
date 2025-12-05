@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @RestController
 @MyComponent
-public class HelloController implements ApplicationContextAware {
+public class HelloController {
 
     private final HelloService helloService;
 //    private ApplicationContext applicationContext;
@@ -24,14 +24,18 @@ public class HelloController implements ApplicationContextAware {
     }
 
     @GetMapping("/hello")
-    public String hello (String name) {
+    public String sayHello (String name) {
         if(name == null || name.trim().isEmpty()) throw new IllegalArgumentException();
-        return helloService.hello(name);
+        return helloService.sayHello(name);
     }
 
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("setApplicationContext");
+    @GetMapping("/count")
+    public String count(String name) {
+        return name+":"+helloService.countOf(name);
     }
+
+//    @Override
+//    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+//        System.out.println("setApplicationContext");
+//    }
 }

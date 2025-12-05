@@ -1,4 +1,4 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
 @MyConfigProperty(prefix = "data")
 public class MyDataSourceProperties {

@@ -1,4 +1,4 @@
-package com.example.config;
+package backup.config;
 
 import org.springframework.context.annotation.Conditional;
 

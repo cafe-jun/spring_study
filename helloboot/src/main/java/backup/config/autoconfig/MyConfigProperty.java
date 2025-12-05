@@ -1,4 +1,4 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
 import org.springframework.stereotype.Component;
 

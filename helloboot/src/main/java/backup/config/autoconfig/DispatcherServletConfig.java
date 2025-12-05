@@ -1,6 +1,6 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
-import com.example.config.MyAutoConfig;
+import backup.config.MyAutoConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.DispatcherServlet;
 

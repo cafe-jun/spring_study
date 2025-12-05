@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Primary
-public class HelloDecorator implements HelloService {
+public class HelloDecorator {
 
     private final HelloService helloService;
 
@@ -13,9 +13,11 @@ public class HelloDecorator implements HelloService {
         this.helloService = helloService;
     }
 
-    @Override
+
     public String hello(String name) {
-        return "*"+helloService.hello(name)+"*";
+        return "*"+helloService.sayHello(name)+"*";
     }
+
+    public int countOf(String name) { return helloService.countOf(name); }
 
 }
