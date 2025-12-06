@@ -1,6 +1,6 @@
 package com.example.helloboot;
 
-import com.example.config.EnableMyAutoConfig;
+import backup.config.EnableMyAutoConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 

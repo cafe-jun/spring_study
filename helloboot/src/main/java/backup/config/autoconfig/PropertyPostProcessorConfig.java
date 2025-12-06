@@ -1,6 +1,6 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
-import com.example.config.MyAutoConfig;
+import backup.config.MyAutoConfig;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.context.properties.bind.Binder;

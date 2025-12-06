@@ -3,15 +3,14 @@ package com.example.helloboot;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HelloConttrollerTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class HelloControllerTest {
     @Test
     void helloController() {
         HelloController helloController = new HelloController(name -> name);
-
-        String ret = helloController.hello("Spring");
-
-        Assertions.assertThat(ret).isEqualTo("Spring");
-
+        String ret = helloController.sayHello("Spring");
+        assertThat(ret).isEqualTo("Spring");
     }
 
     @Test

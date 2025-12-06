@@ -1,7 +1,7 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
-import com.example.config.ConditionalMyOnClass;
-import com.example.config.MyAutoConfig;
+import backup.config.ConditionalMyOnClass;
+import backup.config.MyAutoConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnSingleCandidate;

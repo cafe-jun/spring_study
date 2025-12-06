@@ -1,4 +1,4 @@
-package com.example.config.autoconfig;
+package backup.config;
 
 import org.springframework.context.annotation.Import;
 
@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Import(MyConfigPropertyImportSelector.class)
-public @interface EnableMyConfigProperty {
-    Class<?> value();
+@Import(MyAutoConfigImportSelector.class)
+public @interface EnableMyAutoConfig {
 }

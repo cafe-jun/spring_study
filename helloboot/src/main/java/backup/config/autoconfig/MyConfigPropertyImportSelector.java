@@ -1,4 +1,4 @@
-package com.example.config.autoconfig;
+package backup.config.autoconfig;
 
 import org.springframework.context.annotation.DeferredImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
